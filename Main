@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ArmZoo NGO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { margin:0; font-family: Arial; }
+    .hero {
+      height: 100vh;
+      background: url('cover.jpg') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+    }
+    .overlay {
+      background: rgba(0,0,0,0.5);
+      padding:40px;
+      border-radius:10px;
+    }
+    h1 { font-size:50px; }
+    p { font-size:20px; }
+    .section { padding:60px 20px; text-align:center; }
+  </style>
+</head>
+
+<body>
+
+<div class="hero">
+  <div class="overlay">
+    <img src="logo.png" width="120"><br><br>
+    <h1>ArmZoo NGO</h1>
+    <p>Healing • Learning • Growing</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>About</h2>
+  <p>
+  ArmZoo NGO is an inclusive, nature-based center in Armenia providing education,
+  animal-assisted therapy, and psychosocial support.
+  </p>
+</div>
+
+<div class="section">
+  <h2>Contact</h2>
+  <p>📍 Getamej Community, Kotayk Region, Armenia</p>
+  <p>📞 +374 94 138218</p>
+  <p>✉ armzoo2025@gmail.com</p>
+</div>
+
+</body>
+</html>
