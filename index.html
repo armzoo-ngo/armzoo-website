@@ -11,29 +11,41 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* HERO SECTION */
 .hero {
-  background: url('cover.png') center/cover no-repeat;
+  background: url('cover.png') center top / contain no-repeat;
+  background-color: #d9d9d9;
   color: white;
   text-align: center;
-  padding: 120px 20px 80px;
+  padding: 60px 20px 60px;
 }
 
+/* LOGO */
 .logo {
-  width: 140px;
+  width: 180px;
   margin-bottom: 20px;
 }
 
+/* TITLE */
 .hero h1 {
-  font-size: 28px;
+  font-size: 24px;
+  line-height: 1.3;
   background: rgba(0,0,0,0.6);
-  padding: 10px;
+  padding: 12px;
+  max-width: 700px;
+  margin: 20px auto 10px;
 }
 
+/* SUBTEXT */
 .hero p {
   background: rgba(0,0,0,0.6);
-  padding: 5px;
+  padding: 10px;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
 }
 
+/* BUTTON */
 .button {
   background:#28a745;
   color:white;
@@ -42,13 +54,16 @@ body {
   border-radius:10px;
   font-weight:bold;
   display:inline-block;
-  margin-top:20px;
+  margin-top:24px;
+  font-size: 20px;
 }
 
+/* SECTIONS */
 section {
   padding: 30px;
 }
 
+/* DONATE BOX */
 .donate-box {
   background:#f4f4f4;
   padding:20px;
@@ -68,7 +83,6 @@ section {
 
   <p>Զարգացնում ենք երեխաներին բնության, կրթության և կենդանահեն թերապիայի միջոցով</p>
 
-  <!-- Donate (temporary mail) -->
   <a href="mailto:armzoo.ngo@gmail.com" class="button">
     Donate Now
   </a>
@@ -109,7 +123,6 @@ section {
 
     <p>💳 Idram / Telcell: (add later)</p>
 
-    <!-- PayPal (replace later) -->
     <a href="https://paypal.me/YOURNAME" target="_blank" class="button">
       Donate via PayPal
     </a>
