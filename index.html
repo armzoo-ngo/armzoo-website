@@ -1,51 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArmZoo NGO</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       color: #222;
-      background: #fff;
+      background: #ffffff;
     }
 
-    .hero {
-      background-image: url("cover.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      text-align: center;
-      color: white;
-      padding: 60px 20px;
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e8e8e8;
     }
 
-    .overlay {
-      background: rgba(0, 0, 0, 0.45);
-      padding: 20px;
-      max-width: 800px;
+    .nav-wrap {
+      max-width: 1100px;
       margin: 0 auto;
-      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 700;
+      color: #2f6b45;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+      margin-left: 14px;
+    }
+
+    .hero-image {
+      width: 100%;
+      background: #f3f3f3;
+    }
+
+    .hero-image img {
+      width: 100%;
+      display: block;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 36px 20px 24px;
     }
 
     .logo {
       width: 120px;
       display: block;
-      margin: 0 auto 20px auto;
+      margin: 0 auto 18px;
     }
 
-    h1 {
-      margin: 0 0 15px 0;
-      font-size: 32px;
+    .hero-title {
+      font-size: 34px;
       line-height: 1.25;
+      margin: 0 auto 14px;
+      color: #2f6b45;
     }
 
-    .subtitle {
+    .hero-subtitle {
       font-size: 20px;
-      line-height: 1.5;
-      margin-bottom: 20px;
+      line-height: 1.6;
+      margin: 0 auto 24px;
+      color: #6d4c7d;
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .button {
@@ -53,77 +102,166 @@
       background: #28a745;
       color: white;
       text-decoration: none;
-      padding: 14px 26px;
-      border-radius: 8px;
-      font-weight: bold;
-      margin-top: 10px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .button.secondary {
+      background: #2f6b45;
     }
 
     section {
-      padding: 40px 20px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 48px 20px;
     }
 
-    .gray {
-      background: #f5f5f5;
+    .soft {
+      background: #f7f6f4;
+      max-width: 100%;
+    }
+
+    .soft .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+
+    h2 {
+      font-size: 34px;
+      margin: 0 0 18px;
+    }
+
+    p.lead {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-top: 0;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .impact-card {
+      background: white;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
     }
 
     .gallery img {
       width: 100%;
-      max-width: 320px;
-      margin: 10px;
-      border-radius: 12px;
-      display: inline-block;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid #e8e8e8;
+    }
+
+    .donate-box {
+      background: #f8f8f8;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    ul.clean {
+      padding-left: 20px;
+      line-height: 1.9;
     }
 
     footer {
+      margin-top: 30px;
       background: #1f2a22;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 30px;
+      padding: 24px 20px;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 24px;
+    @media (max-width: 640px) {
+      .brand {
+        font-size: 18px;
       }
 
-      .subtitle {
-        font-size: 17px;
+      .nav-links a {
+        font-size: 13px;
+        margin-left: 10px;
       }
 
       .logo {
         width: 100px;
+      }
+
+      .hero-title {
+        font-size: 28px;
+      }
+
+      .hero-subtitle {
+        font-size: 17px;
+      }
+
+      h2 {
+        font-size: 28px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
-    <div class="overlay">
-      <img src="logo.png" alt="ArmZoo Logo" class="logo">
-
-      <h1>Empowering Children Through Nature, Learning and Animal-Assisted Therapy</h1>
-
-      <div class="subtitle">
-        Զարգացնում ենք երեխաներին բնության, կրթության և կենդանահեն թերապիայի միջոցով
+  <nav>
+    <div class="nav-wrap">
+      <div class="brand">ArmZoo NGO</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#impact">Impact</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#donate">Donate</a>
+        <a href="#contact">Contact</a>
       </div>
+    </div>
+  </nav>
 
+  <div class="hero-image">
+    <img src="cover.png" alt="ArmZoo cover image">
+  </div>
+
+  <div class="hero-content">
+    <img src="logo.png" alt="ArmZoo logo" class="logo">
+
+    <h1 class="hero-title">
+      Empowering Children Through Nature, Learning and Animal-Assisted Therapy
+    </h1>
+
+    <p class="hero-subtitle">
+      Զարգացնում ենք երեխաներին բնության, կրթության և կենդանահեն թերապիայի միջոցով
+    </p>
+
+    <div class="hero-actions">
       <a href="#donate" class="button">Donate Now</a>
+      <a href="#contact" class="button secondary">Partner With Us</a>
     </div>
   </div>
 
-  <section>
+  <section id="about">
     <h2>About Us</h2>
-    <p>
+    <p class="lead">
       ArmZoo NGO is an inclusive educational and therapeutic initiative in Armenia.
       We support children through nature-based learning, animal-assisted therapy,
       psychosocial support, and community programs.
     </p>
-    <p>
+    <p class="lead">
       <strong>
         Our mission is to create a safe, inclusive environment where children can heal,
         learn, and grow through nature and animal-assisted therapy.
@@ -131,42 +269,66 @@
     </p>
   </section>
 
-  <section class="gray">
-    <h2>Impact</h2>
-    <ul>
-      <li>40–100 children supported annually</li>
-      <li>Animal-assisted therapy programs</li>
-      <li>Inclusive education initiatives</li>
-      <li>Community engagement</li>
-    </ul>
-  </section>
+  <div id="impact" class="soft">
+    <div class="inner">
+      <h2>Impact</h2>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <strong>40–100 children</strong><br>
+          supported annually
+        </div>
+        <div class="impact-card">
+          <strong>Animal-assisted therapy</strong><br>
+          programs and guided sessions
+        </div>
+        <div class="impact-card">
+          <strong>Inclusive education</strong><br>
+          learning and developmental support
+        </div>
+        <div class="impact-card">
+          <strong>Community engagement</strong><br>
+          family and local participation
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <section>
+  <section id="gallery">
     <h2>Gallery</h2>
+    <p class="lead">
+      A visual introduction to the ArmZoo concept, environment, and inclusive therapy model.
+    </p>
     <div class="gallery">
-      <img src="cover.png" alt="ArmZoo Gallery 1">
-      <img src="cover.png" alt="ArmZoo Gallery 2">
-      <img src="cover.png" alt="ArmZoo Gallery 3">
+      <img src="cover.png" alt="ArmZoo gallery 1">
+      <img src="cover.png" alt="ArmZoo gallery 2">
+      <img src="cover.png" alt="ArmZoo gallery 3">
     </div>
   </section>
 
-  <section id="donate" class="gray">
-    <h2>Donate</h2>
-    <p><strong>Support our mission</strong></p>
-    <p>Email: armzoo2025@gmail.com</p>
-    <p>Bank transfer: add account details here</p>
-    <p>Idram / Telcell: add payment number here</p>
-    <p>
-      <a href="https://paypal.me/YOURNAME" target="_blank" class="button">Donate via PayPal</a>
-    </p>
-  </section>
+  <div id="donate" class="soft">
+    <div class="inner">
+      <h2>Donate</h2>
+      <div class="donate-box">
+        <p><strong>Support our mission 💚</strong></p>
+        <p>Email: armzoo2025@gmail.com</p>
+        <p>Bank transfer: add account details here</p>
+        <p>Idram / Telcell: add payment number here</p>
+        <p>PayPal: replace the link below with your real PayPal link</p>
+        <p>
+          <a href="https://paypal.me/YOURNAME" target="_blank" class="button">Donate via PayPal</a>
+        </p>
+      </div>
+    </div>
+  </div>
 
-  <section>
+  <section id="contact">
     <h2>Contact</h2>
-    <p>Email: armzoo2025@gmail.com</p>
-    <p>Phone: +374 94 138218</p>
-    <p>Location: Getamej community, Armenia</p>
-    <p>Website: armzoo-website.vercel.app</p>
+    <ul class="clean">
+      <li>Email: armzoo2025@gmail.com</li>
+      <li>Phone: +374 94 138218</li>
+      <li>Location: Getamej community, Armenia</li>
+      <li>Website: armzoo-website.vercel.app</li>
+    </ul>
   </section>
 
   <footer>
