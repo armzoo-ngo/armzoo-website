@@ -14,24 +14,25 @@
       font-family: Arial, sans-serif;
       color: #222;
       background: #ffffff;
+      line-height: 1.6;
     }
 
     nav {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(255,255,255,0.96);
+      z-index: 100;
+      background: #ffffff;
       border-bottom: 1px solid #e8e8e8;
     }
 
     .nav-wrap {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 14px 18px;
+      padding: 14px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
@@ -41,20 +42,25 @@
       color: #2f6b45;
     }
 
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
     .nav-links a {
       text-decoration: none;
       color: #333;
       font-size: 14px;
       font-weight: 600;
-      margin-left: 14px;
     }
 
-    .hero-image {
+    .cover-wrap {
       width: 100%;
-      background: #f3f3f3;
+      background: #f4f4f4;
     }
 
-    .hero-image img {
+    .cover-wrap img {
       width: 100%;
       display: block;
       max-height: 520px;
@@ -65,28 +71,27 @@
     .hero-content {
       max-width: 900px;
       margin: 0 auto;
+      padding: 36px 20px 20px;
       text-align: center;
-      padding: 36px 20px 24px;
     }
 
     .logo {
-      width: 120px;
+      width: 130px;
       display: block;
-      margin: 0 auto 18px;
+      margin: 0 auto 20px;
     }
 
     .hero-title {
       font-size: 34px;
       line-height: 1.25;
-      margin: 0 auto 14px;
+      margin: 0 0 16px;
       color: #2f6b45;
     }
 
     .hero-subtitle {
       font-size: 20px;
-      line-height: 1.6;
-      margin: 0 auto 24px;
       color: #6d4c7d;
+      margin: 0 auto 24px;
       max-width: 760px;
     }
 
@@ -99,13 +104,13 @@
 
     .button {
       display: inline-block;
-      background: #28a745;
-      color: white;
-      text-decoration: none;
       padding: 14px 28px;
       border-radius: 10px;
+      text-decoration: none;
       font-size: 18px;
       font-weight: 700;
+      background: #28a745;
+      color: white;
     }
 
     .button.secondary {
@@ -115,7 +120,7 @@
     section {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 48px 20px;
+      padding: 50px 20px;
     }
 
     .soft {
@@ -123,20 +128,20 @@
       max-width: 100%;
     }
 
-    .soft .inner {
+    .soft-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 48px 20px;
+      padding: 50px 20px;
     }
 
     h2 {
-      font-size: 34px;
+      font-size: 32px;
       margin: 0 0 18px;
+      color: #1f1f1f;
     }
 
-    p.lead {
+    .lead {
       font-size: 18px;
-      line-height: 1.7;
       margin-top: 0;
     }
 
@@ -148,10 +153,19 @@
     }
 
     .impact-card {
-      background: white;
+      background: #ffffff;
       border: 1px solid #e8e8e8;
       border-radius: 16px;
       padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    .pro-box {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 22px;
+      margin-top: 20px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.04);
     }
 
@@ -171,10 +185,11 @@
     }
 
     .donate-box {
-      background: #f8f8f8;
+      background: #ffffff;
       border: 1px solid #e8e8e8;
       border-radius: 16px;
       padding: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
     }
 
     ul.clean {
@@ -195,13 +210,8 @@
         font-size: 18px;
       }
 
-      .nav-links a {
-        font-size: 13px;
-        margin-left: 10px;
-      }
-
       .logo {
-        width: 100px;
+        width: 110px;
       }
 
       .hero-title {
@@ -214,6 +224,10 @@
 
       h2 {
         font-size: 28px;
+      }
+
+      .button {
+        font-size: 16px;
       }
     }
   </style>
@@ -233,12 +247,12 @@
     </div>
   </nav>
 
-  <div class="hero-image">
-    <img src="cover.png" alt="ArmZoo cover image">
+  <div class="cover-wrap">
+    <img src="cover.png" alt="ArmZoo cover image" />
   </div>
 
   <div class="hero-content">
-    <img src="logo.png" alt="ArmZoo logo" class="logo">
+    <img src="logo.png" alt="ArmZoo logo" class="logo" />
 
     <h1 class="hero-title">
       Empowering Children Through Nature, Learning and Animal-Assisted Therapy
@@ -267,26 +281,36 @@
         learn, and grow through nature and animal-assisted therapy.
       </strong>
     </p>
+
+    <div class="pro-box">
+      <h2 style="font-size:24px; margin-top:0;">Professional NGO Profile</h2>
+      <ul class="clean">
+        <li>Inclusive education and psychosocial support for children</li>
+        <li>Animal-assisted therapy and nature-based development</li>
+        <li>Community-based engagement and local partnerships</li>
+        <li>Grant-ready initiative with land, team, and live website</li>
+      </ul>
+    </div>
   </section>
 
   <div id="impact" class="soft">
-    <div class="inner">
+    <div class="soft-inner">
       <h2>Impact</h2>
       <div class="impact-grid">
         <div class="impact-card">
-          <strong>40–100 children</strong><br>
+          <strong>40–100 children</strong><br />
           supported annually
         </div>
         <div class="impact-card">
-          <strong>Animal-assisted therapy</strong><br>
-          programs and guided sessions
+          <strong>Animal-assisted therapy</strong><br />
+          structured programs and guided sessions
         </div>
         <div class="impact-card">
-          <strong>Inclusive education</strong><br>
+          <strong>Inclusive education</strong><br />
           learning and developmental support
         </div>
         <div class="impact-card">
-          <strong>Community engagement</strong><br>
+          <strong>Community engagement</strong><br />
           family and local participation
         </div>
       </div>
@@ -294,19 +318,19 @@
   </div>
 
   <section id="gallery">
-    <h2>Gallery</h2>
+    <h2>Photo Gallery</h2>
     <p class="lead">
       A visual introduction to the ArmZoo concept, environment, and inclusive therapy model.
     </p>
     <div class="gallery">
-      <img src="cover.png" alt="ArmZoo gallery 1">
-      <img src="cover.png" alt="ArmZoo gallery 2">
-      <img src="cover.png" alt="ArmZoo gallery 3">
+      <img src="cover.png" alt="ArmZoo gallery 1" />
+      <img src="cover.png" alt="ArmZoo gallery 2" />
+      <img src="cover.png" alt="ArmZoo gallery 3" />
     </div>
   </section>
 
   <div id="donate" class="soft">
-    <div class="inner">
+    <div class="soft-inner">
       <h2>Donate</h2>
       <div class="donate-box">
         <p><strong>Support our mission 💚</strong></p>
