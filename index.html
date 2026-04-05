@@ -15,26 +15,31 @@ body {
   background: url('cover.png') center/cover no-repeat;
   color: white;
   text-align: center;
-  padding: 100px 20px;
+  padding: 120px 20px 80px;
+}
+
+.logo {
+  width: 140px;
+  margin-bottom: 20px;
 }
 
 .hero h1 {
   font-size: 28px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   padding: 10px;
 }
 
 .hero p {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   padding: 5px;
 }
 
 .button {
   background:#28a745;
   color:white;
-  padding:12px 24px;
+  padding:14px 28px;
   text-decoration:none;
-  border-radius:8px;
+  border-radius:10px;
   font-weight:bold;
   display:inline-block;
   margin-top:20px;
@@ -44,16 +49,26 @@ section {
   padding: 30px;
 }
 
+.donate-box {
+  background:#f4f4f4;
+  padding:20px;
+  border-radius:10px;
+  margin-top:20px;
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="hero">
-  <img src="logo.png" width="120">
+  <img src="logo.png" class="logo">
+
   <h1>Empowering Children Through Nature, Learning and Animal-Assisted Therapy</h1>
+
   <p>Զարգացնում ենք երեխաներին բնության, կրթության և կենդանահեն թերապիայի միջոցով</p>
 
+  <!-- Donate (temporary mail) -->
   <a href="mailto:armzoo.ngo@gmail.com" class="button">
     Donate Now
   </a>
@@ -61,10 +76,15 @@ section {
 
 <section>
   <h2>About Us</h2>
+
   <p>
     ArmZoo NGO is an inclusive educational and therapeutic initiative in Armenia.  
     We support children through nature-based learning, animal-assisted therapy, and community programs.
   </p>
+
+  <p><strong>
+    Our mission is to create a safe, inclusive environment where children can heal, learn, and grow through nature and animal-assisted therapy.
+  </strong></p>
 </section>
 
 <section>
@@ -75,6 +95,26 @@ section {
     <li>👧 Inclusive education initiatives</li>
     <li>🌍 Community engagement</li>
   </ul>
+</section>
+
+<section>
+  <h2>Donate</h2>
+
+  <div class="donate-box">
+    <p><strong>Support our mission 💚</strong></p>
+
+    <p>📧 Email: armzoo.ngo@gmail.com</p>
+
+    <p>🏦 Bank transfer: (add later)</p>
+
+    <p>💳 Idram / Telcell: (add later)</p>
+
+    <!-- PayPal (replace later) -->
+    <a href="https://paypal.me/YOURNAME" target="_blank" class="button">
+      Donate via PayPal
+    </a>
+  </div>
+
 </section>
 
 <section>
