@@ -3,60 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>ArmZoo NGO | Inclusive Education and Animal-Assisted Therapy in Armenia</title>
-  <meta name="description" content="ArmZoo NGO is an inclusive educational and therapeutic initiative in Armenia supporting children through nature-based learning, animal-assisted therapy, psychosocial support, and community programs." />
-  <meta name="keywords" content="ArmZoo NGO, Armenia NGO, inclusive education, animal-assisted therapy, psychosocial support, children, nature-based learning, donation Armenia" />
-  <meta name="author" content="ArmZoo NGO" />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#2f6b45" />
-
-  <link rel="canonical" href="https://armzoongo.org/" />
-  <link rel="icon" type="image/png" href="logo.png" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="ArmZoo NGO" />
-  <meta property="og:title" content="ArmZoo NGO | Inclusive Education and Animal-Assisted Therapy in Armenia" />
-  <meta property="og:description" content="Supporting children through nature-based learning, animal-assisted therapy, psychosocial support, and community programs." />
-  <meta property="og:url" content="https://armzoongo.org/" />
-  <meta property="og:image" content="https://armzoongo.org/cover.png" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ArmZoo NGO" />
-  <meta name="twitter:description" content="Supporting children through nature-based learning, animal-assisted therapy, psychosocial support, and community programs." />
-  <meta name="twitter:image" content="https://armzoongo.org/cover.png" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "NGO",
-    "name": "ArmZoo NGO",
-    "url": "https://armzoongo.org/",
-    "logo": "https://armzoongo.org/logo.png",
-    "image": "https://armzoongo.org/cover.png",
-    "description": "ArmZoo NGO is an inclusive educational and therapeutic initiative in Armenia supporting children through nature-based learning, animal-assisted therapy, psychosocial support, and community programs.",
-    "email": "armzoo.ngo@gmail.com",
-    "telephone": "+37494138218",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Getamej",
-      "addressCountry": "AM"
-    },
-    "sameAs": [
-      "https://www.facebook.com/share/1GWHjL6kJZ/",
-      "https://www.instagram.com/armzoongo",
-      "https://www.linkedin.com/in/alisa-melkumyan-301464401"
-    ]
-  }
-  </script>
-
+  <title>ArmZoo NGO</title>
   <style>
     * {
       box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -67,19 +17,10 @@
       line-height: 1.6;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
     nav {
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
       background: #ffffff;
       border-bottom: 1px solid #e8e8e8;
     }
@@ -104,7 +45,7 @@
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
@@ -115,13 +56,10 @@
     }
 
     .nav-links a {
+      text-decoration: none;
       color: #333;
       font-size: 14px;
       font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: #2f6b45;
     }
 
     .lang-switch {
@@ -137,7 +75,6 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: 700;
-      transition: 0.2s ease;
     }
 
     .lang-switch button.active {
@@ -153,6 +90,7 @@
 
     .cover-wrap img {
       width: 100%;
+      display: block;
       max-height: 520px;
       object-fit: cover;
       object-position: center;
@@ -166,7 +104,7 @@
     }
 
     .logo {
-      width: 130px;
+      width: 170px;
       display: block;
       margin: 0 auto 20px;
     }
@@ -201,12 +139,6 @@
       font-weight: 700;
       background: #28a745;
       color: white;
-      border: none;
-      transition: 0.2s ease;
-    }
-
-    .button:hover {
-      opacity: 0.9;
     }
 
     .button.secondary {
@@ -236,13 +168,18 @@
       color: #1f1f1f;
     }
 
+    h3 {
+      margin-top: 0;
+      color: #2f6b45;
+    }
+
     .lead {
       font-size: 18px;
       margin-top: 0;
     }
 
     .impact-grid,
-    .contact-grid {
+    .updates-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
@@ -250,13 +187,29 @@
     }
 
     .impact-card,
-    .pro-box,
-    .donate-box,
-    .contact-box {
+    .update-card {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    .pro-box {
       background: #ffffff;
       border: 1px solid #e8e8e8;
       border-radius: 16px;
       padding: 22px;
+      margin-top: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    .notice-box {
+      background: #fff8e8;
+      border: 1px solid #f0d9a7;
+      border-radius: 16px;
+      padding: 22px;
+      margin-top: 20px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.04);
     }
 
@@ -267,7 +220,8 @@
       margin-top: 20px;
     }
 
-    .gallery img {
+    .gallery img,
+    .update-card img {
       width: 100%;
       height: 240px;
       object-fit: cover;
@@ -275,34 +229,31 @@
       border: 1px solid #e8e8e8;
     }
 
+    .video-placeholder {
+      width: 100%;
+      height: 240px;
+      border-radius: 14px;
+      border: 1px solid #e8e8e8;
+      background: #f1f1f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: #666;
+    }
+
+    .donate-box {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
     ul.clean {
       padding-left: 20px;
       line-height: 1.9;
-    }
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .social-links a {
-      background: #2f6b45;
-      color: white;
-      padding: 10px 16px;
-      border-radius: 10px;
-      font-weight: 700;
-    }
-
-    .social-links a:hover {
-      opacity: 0.9;
-    }
-
-    .contact-item strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #2f6b45;
     }
 
     footer {
@@ -319,7 +270,7 @@
       }
 
       .logo {
-        width: 110px;
+        width: 145px;
       }
 
       .hero-title {
@@ -348,17 +299,18 @@
 
       <div class="nav-right">
         <div class="nav-links">
-          <a href="#about" data-i18n="navAbout">Մեր մասին</a>
-          <a href="#impact" data-i18n="navImpact">Ազդեցություն</a>
-          <a href="#gallery" data-i18n="navGallery">Պատկերասրահ</a>
-          <a href="#donate" data-i18n="navDonate">Նվիրատվություն</a>
-          <a href="#contact" data-i18n="navContact">Կապ</a>
+          <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#impact" data-i18n="navImpact">Impact</a>
+          <a href="#gallery" data-i18n="navGallery">Gallery</a>
+          <a href="#updates" data-i18n="navUpdates">Updates</a>
+          <a href="#donate" data-i18n="navDonate">Donate</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
         </div>
 
         <div class="lang-switch">
-          <button id="lang-hy" class="active" type="button" onclick="setLanguage('hy')">HY</button>
-          <button id="lang-en" type="button" onclick="setLanguage('en')">EN</button>
-          <button id="lang-ru" type="button" onclick="setLanguage('ru')">RU</button>
+          <button id="lang-en" class="active" onclick="setLanguage('en')">EN</button>
+          <button id="lang-hy" onclick="setLanguage('hy')">HY</button>
+          <button id="lang-ru" onclick="setLanguage('ru')">RU</button>
         </div>
       </div>
     </div>
@@ -372,69 +324,93 @@
     <img src="logo.png" alt="ArmZoo logo" class="logo" />
 
     <h1 class="hero-title" data-i18n="heroTitle">
-      Զարգացնում ենք երեխաներին բնության, կրթության և կենդանահեն թերապիայի միջոցով
+      Empowering Children Through Nature, Learning and Animal-Assisted Therapy
     </h1>
 
     <p class="hero-subtitle" data-i18n="heroSubtitle">
-      Ներառական կրթություն, հոգեսոցիալական աջակցություն և կենդանիների աջակցությամբ թերապիա Հայաստանում
+      Developing children through nature, education, and animal-assisted therapy
     </p>
 
     <div class="hero-actions">
-      <a href="#donate" class="button" data-i18n="donateNow">Նվիրաբերել հիմա</a>
-      <a href="#contact" class="button secondary" data-i18n="partnerWithUs">Համագործակցել մեզ հետ</a>
+      <a href="#donate" class="button" data-i18n="donateNow">Donate Now</a>
+      <a href="#contact" class="button secondary" data-i18n="partnerWithUs">Partner With Us</a>
     </div>
   </div>
 
   <section id="about">
-    <h2 data-i18n="aboutTitle">Մեր մասին</h2>
+    <h2 data-i18n="aboutTitle">About Us</h2>
     <p class="lead" data-i18n="aboutText">
-      ArmZoo NGO-ն ներառական կրթական և թերապևտիկ նախաձեռնություն է Հայաստանում։ Մենք աջակցում ենք երեխաներին բնության վրա հիմնված ուսուցմամբ, կենդանահեն թերապիայով, հոգեսոցիալական աջակցությամբ և համայնքային ծրագրերով։
+      ArmZoo NGO is an inclusive educational and therapeutic initiative in Armenia.
+      We support children through nature-based learning, animal-assisted therapy,
+      psychosocial support, and community programs.
     </p>
     <p class="lead">
       <strong data-i18n="missionText">
-        Մեր առաքելությունն է ստեղծել անվտանգ և ներառական միջավայր, որտեղ երեխաները կարող են բուժվել, սովորել և աճել բնության և կենդանիների աջակցությամբ թերապիայի միջոցով։
+        Our mission is to create a safe, inclusive environment where children can heal,
+        learn, and grow through nature and animal-assisted therapy.
       </strong>
     </p>
 
     <div class="pro-box">
-      <h2 style="font-size:24px; margin-top:0;" data-i18n="profileTitle">Կազմակերպության մասնագիտական նկարագիր</h2>
-      <ul class="clean">
-        <li data-i18n="profile1">Ներառական կրթություն և հոգեսոցիալական աջակցություն երեխաների համար</li>
-        <li data-i18n="profile2">Կենդանահեն թերապիա և բնության վրա հիմնված զարգացում</li>
-        <li data-i18n="profile3">Համայնքային ներգրավվածություն և տեղական համագործակցություններ</li>
-        <li data-i18n="profile4">Դրամաշնորհների համար պատրաստ նախաձեռնություն՝ թիմով, հողատարածքով և գործող կայքով</li>
-      </ul>
+      <h2 style="font-size:24px; margin-top:0;" data-i18n="profileTitle">Professional NGO Profile</h2>
+
+      <p data-i18n="profileText1">
+        Welcome to the official website of ArmZoo NGO. Thank you for visiting us.
+      </p>
+
+      <p data-i18n="profileText2">
+        ArmZoo is a newly established non-governmental organization focused on supporting children's development through educational programs, nature-based learning, and interaction with animals.
+      </p>
+
+      <p data-i18n="profileText3">
+        Our educational center is currently in the development and preparation stage and is not yet fully operational.
+      </p>
+
+      <p data-i18n="profileText4">
+        We are actively working on building our programs, environment, and future activities to create a safe, inclusive, and supportive space for children and the community.
+      </p>
+
+      <p data-i18n="profileText5">
+        On this website, you can follow our progress, activities, and future plans.
+      </p>
+    </div>
+
+    <div class="notice-box">
+      <h2 style="font-size:24px; margin-top:0;" data-i18n="noticeTitle">Important Notice</h2>
+      <p data-i18n="noticeText">
+        ArmZoo NGO is a newly established organization. Our educational center is still in the opening and preparation phase and is not yet fully functioning.
+      </p>
     </div>
   </section>
 
   <div id="impact" class="soft">
     <div class="soft-inner">
-      <h2 data-i18n="impactTitle">Ազդեցություն</h2>
+      <h2 data-i18n="impactTitle">Impact</h2>
       <div class="impact-grid">
         <div class="impact-card">
-          <strong data-i18n="impact1Title">40–100 երեխա</strong><br />
-          <span data-i18n="impact1Text">աջակցություն տարեկան</span>
+          <strong data-i18n="impact1Title">40–100 children</strong><br />
+          <span data-i18n="impact1Text">supported annually</span>
         </div>
         <div class="impact-card">
-          <strong data-i18n="impact2Title">Կենդանահեն թերապիա</strong><br />
-          <span data-i18n="impact2Text">կառուցվածքային ծրագրեր և ուղեկցվող սեանսներ</span>
+          <strong data-i18n="impact2Title">Animal-assisted therapy</strong><br />
+          <span data-i18n="impact2Text">structured programs and guided sessions</span>
         </div>
         <div class="impact-card">
-          <strong data-i18n="impact3Title">Ներառական կրթություն</strong><br />
-          <span data-i18n="impact3Text">ուսումնական և զարգացման աջակցություն</span>
+          <strong data-i18n="impact3Title">Inclusive education</strong><br />
+          <span data-i18n="impact3Text">learning and developmental support</span>
         </div>
         <div class="impact-card">
-          <strong data-i18n="impact4Title">Համայնքային ներգրավվածություն</strong><br />
-          <span data-i18n="impact4Text">ընտանիքների և տեղական մասնակցություն</span>
+          <strong data-i18n="impact4Title">Community engagement</strong><br />
+          <span data-i18n="impact4Text">family and local participation</span>
         </div>
       </div>
     </div>
   </div>
 
   <section id="gallery">
-    <h2 data-i18n="galleryTitle">Պատկերասրահ</h2>
+    <h2 data-i18n="galleryTitle">Photo Gallery</h2>
     <p class="lead" data-i18n="galleryText">
-      Տեսողական ներկայացում ArmZoo-ի գաղափարի, միջավայրի և ներառական թերապիայի մոդելի մասին։
+      A visual introduction to the ArmZoo concept, environment, and inclusive therapy model.
     </p>
     <div class="gallery">
       <img src="cover.png" alt="ArmZoo gallery 1" />
@@ -443,121 +419,92 @@
     </div>
   </section>
 
+  <section id="updates">
+    <h2 data-i18n="updatesTitle">Photo, Video and Updates</h2>
+    <p class="lead" data-i18n="updatesLead">
+      This section can be used for future photos, videos, and updates about the development of our organization and center.
+    </p>
+
+    <div class="updates-grid">
+      <div class="update-card">
+        <h3 data-i18n="updatesCard1Title">Photos</h3>
+        <p data-i18n="updatesCard1Text">
+          You can place future photos here to show the activities, environment, and progress of ArmZoo NGO.
+        </p>
+        <img src="cover.png" alt="ArmZoo future photo placeholder" />
+      </div>
+
+      <div class="update-card">
+        <h3 data-i18n="updatesCard2Title">Videos</h3>
+        <p data-i18n="updatesCard2Text">
+          You can later add a project video, educational video, or center introduction here.
+        </p>
+        <div class="video-placeholder" data-i18n="videoPlaceholder">
+          Video section will be added here later
+        </div>
+      </div>
+
+      <div class="update-card">
+        <h3 data-i18n="updatesCard3Title">Updates</h3>
+        <p data-i18n="updatesCard3Text">
+          This area can later include project milestones, news, visitor impressions, and organizational development updates.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <div id="donate" class="soft">
     <div class="soft-inner">
-      <h2 data-i18n="donateTitle">Նվիրատվություն</h2>
+      <h2 data-i18n="donateTitle">Donate</h2>
       <div class="donate-box">
-        <p><strong data-i18n="donateSupport">Աջակցեք մեր առաքելությանը 💚</strong></p>
-        <p data-i18n="donateText">
-          Նվիրատվության ամբողջական համակարգը շուտով կավելացվի։ Մինչ այդ կարող եք կապ հաստատել մեզ հետ համագործակցության և աջակցության համար։
-        </p>
-        <p><span data-i18n="emailLabel">Էլ. հասցե</span>: <a href="mailto:armzoo.ngo@gmail.com">armzoo.ngo@gmail.com</a></p>
-        <p><span data-i18n="phoneLabel">Հեռախոս</span>: <a href="tel:+37494138218">+374 94 138218</a></p>
-        <p><span data-i18n="websiteLabel">Կայք</span>: <a href="https://armzoongo.org" target="_blank" rel="noopener noreferrer">armzoongo.org</a></p>
+        <p><strong data-i18n="donateSupport">Support our mission 💚</strong></p>
+        <p><span data-i18n="emailLabel">Email</span>: armzoo.ngo@gmail.com</p>
+        <p data-i18n="bankTransfer">Bank transfer: account details will be added soon</p>
+        <p data-i18n="idramText">Idram / Telcell: payment details will be added soon</p>
+        <p data-i18n="paypalText">PayPal: donation system will be added later</p>
       </div>
     </div>
   </div>
 
   <section id="contact">
-    <h2 data-i18n="contactTitle">Կապ</h2>
-
-    <div class="contact-box">
-      <div class="contact-grid">
-        <div class="contact-item">
-          <strong data-i18n="emailLabel">Էլ. հասցե</strong>
-          <a href="mailto:armzoo.ngo@gmail.com">armzoo.ngo@gmail.com</a>
-        </div>
-
-        <div class="contact-item">
-          <strong data-i18n="phoneLabel">Հեռախոս</strong>
-          <a href="tel:+37494138218">+374 94 138218</a>
-        </div>
-
-        <div class="contact-item">
-          <strong data-i18n="locationLabel">Վայրը</strong>
-          <span data-i18n="locationText">Գետամեջ համայնք, Հայաստան</span>
-        </div>
-
-        <div class="contact-item">
-          <strong data-i18n="websiteLabel">Կայք</strong>
-          <a href="https://armzoongo.org" target="_blank" rel="noopener noreferrer">armzoongo.org</a>
-        </div>
-      </div>
-
-      <div class="social-links">
-        <a href="https://www.facebook.com/share/1GWHjL6kJZ/" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://www.instagram.com/armzoongo" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.linkedin.com/in/alisa-melkumyan-301464401" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </div>
-    </div>
+    <h2 data-i18n="contactTitle">Contact</h2>
+    <ul class="clean">
+      <li><span data-i18n="emailLabel">Email</span>: <a href="mailto:armzoo.ngo@gmail.com">armzoo.ngo@gmail.com</a></li>
+      <li><span data-i18n="phoneLabel">Phone</span>: +374 94 138218</li>
+      <li><span data-i18n="locationLabel">Location</span>: <span data-i18n="locationText">Getamej community, Armenia</span></li>
+      <li><span data-i18n="websiteLabel">Website</span>: <a href="https://armzoongo.org" target="_blank">armzoongo.org</a></li>
+    </ul>
   </section>
 
   <footer data-i18n="footerText">
-    ArmZoo NGO • Ներառական կրթություն • Կենդանահեն թերապիա • Համայնքային աջակցություն
+    ArmZoo NGO • Inclusive Education • Animal-Assisted Therapy • Community Support
   </footer>
 
   <script>
     const translations = {
-      hy: {
-        brand: "ArmZoo NGO",
-        navAbout: "Մեր մասին",
-        navImpact: "Ազդեցություն",
-        navGallery: "Պատկերասրահ",
-        navDonate: "Նվիրատվություն",
-        navContact: "Կապ",
-        heroTitle: "Զարգացնում ենք երեխաներին բնության, կրթության և կենդանահեն թերապիայի միջոցով",
-        heroSubtitle: "Ներառական կրթություն, հոգեսոցիալական աջակցություն և կենդանիների աջակցությամբ թերապիա Հայաստանում",
-        donateNow: "Նվիրաբերել հիմա",
-        partnerWithUs: "Համագործակցել մեզ հետ",
-        aboutTitle: "Մեր մասին",
-        aboutText: "ArmZoo NGO-ն ներառական կրթական և թերապևտիկ նախաձեռնություն է Հայաստանում։ Մենք աջակցում ենք երեխաներին բնության վրա հիմնված ուսուցմամբ, կենդանահեն թերապիայով, հոգեսոցիալական աջակցությամբ և համայնքային ծրագրերով։",
-        missionText: "Մեր առաքելությունն է ստեղծել անվտանգ և ներառական միջավայր, որտեղ երեխաները կարող են բուժվել, սովորել և աճել բնության և կենդանիների աջակցությամբ թերապիայի միջոցով։",
-        profileTitle: "Կազմակերպության մասնագիտական նկարագիր",
-        profile1: "Ներառական կրթություն և հոգեսոցիալական աջակցություն երեխաների համար",
-        profile2: "Կենդանահեն թերապիա և բնության վրա հիմնված զարգացում",
-        profile3: "Համայնքային ներգրավվածություն և տեղական համագործակցություններ",
-        profile4: "Դրամաշնորհների համար պատրաստ նախաձեռնություն՝ թիմով, հողատարածքով և գործող կայքով",
-        impactTitle: "Ազդեցություն",
-        impact1Title: "40–100 երեխա",
-        impact1Text: "աջակցություն տարեկան",
-        impact2Title: "Կենդանահեն թերապիա",
-        impact2Text: "կառուցվածքային ծրագրեր և ուղեկցվող սեանսներ",
-        impact3Title: "Ներառական կրթություն",
-        impact3Text: "ուսումնական և զարգացման աջակցություն",
-        impact4Title: "Համայնքային ներգրավվածություն",
-        impact4Text: "ընտանիքների և տեղական մասնակցություն",
-        galleryTitle: "Պատկերասրահ",
-        galleryText: "Տեսողական ներկայացում ArmZoo-ի գաղափարի, միջավայրի և ներառական թերապիայի մոդելի մասին։",
-        donateTitle: "Նվիրատվություն",
-        donateSupport: "Աջակցեք մեր առաքելությանը 💚",
-        donateText: "Նվիրատվության ամբողջական համակարգը շուտով կավելացվի։ Մինչ այդ կարող եք կապ հաստատել մեզ հետ համագործակցության և աջակցության համար։",
-        contactTitle: "Կապ",
-        emailLabel: "Էլ. հասցե",
-        phoneLabel: "Հեռախոս",
-        locationLabel: "Վայրը",
-        locationText: "Գետամեջ համայնք, Հայաստան",
-        websiteLabel: "Կայք",
-        footerText: "ArmZoo NGO • Ներառական կրթություն • Կենդանահեն թերապիա • Համայնքային աջակցություն"
-      },
       en: {
         brand: "ArmZoo NGO",
         navAbout: "About",
         navImpact: "Impact",
         navGallery: "Gallery",
+        navUpdates: "Updates",
         navDonate: "Donate",
         navContact: "Contact",
         heroTitle: "Empowering Children Through Nature, Learning and Animal-Assisted Therapy",
-        heroSubtitle: "Inclusive education, psychosocial support, and animal-assisted therapy in Armenia",
+        heroSubtitle: "Developing children through nature, education, and animal-assisted therapy",
         donateNow: "Donate Now",
         partnerWithUs: "Partner With Us",
         aboutTitle: "About Us",
         aboutText: "ArmZoo NGO is an inclusive educational and therapeutic initiative in Armenia. We support children through nature-based learning, animal-assisted therapy, psychosocial support, and community programs.",
         missionText: "Our mission is to create a safe, inclusive environment where children can heal, learn, and grow through nature and animal-assisted therapy.",
         profileTitle: "Professional NGO Profile",
-        profile1: "Inclusive education and psychosocial support for children",
-        profile2: "Animal-assisted therapy and nature-based development",
-        profile3: "Community-based engagement and local partnerships",
-        profile4: "Grant-ready initiative with team, land, and live website",
+        profileText1: "Welcome to the official website of ArmZoo NGO. Thank you for visiting us.",
+        profileText2: "ArmZoo is a newly established non-governmental organization focused on supporting children's development through educational programs, nature-based learning, and interaction with animals.",
+        profileText3: "Our educational center is currently in the development and preparation stage and is not yet fully operational.",
+        profileText4: "We are actively working on building our programs, environment, and future activities to create a safe, inclusive, and supportive space for children and the community.",
+        profileText5: "On this website, you can follow our progress, activities, and future plans.",
+        noticeTitle: "Important Notice",
+        noticeText: "ArmZoo NGO is a newly established organization. Our educational center is still in the opening and preparation phase and is not yet fully functioning.",
         impactTitle: "Impact",
         impact1Title: "40–100 children",
         impact1Text: "supported annually",
@@ -569,36 +516,107 @@
         impact4Text: "family and local participation",
         galleryTitle: "Photo Gallery",
         galleryText: "A visual introduction to the ArmZoo concept, environment, and inclusive therapy model.",
+        updatesTitle: "Photo, Video and Updates",
+        updatesLead: "This section can be used for future photos, videos, and updates about the development of our organization and center.",
+        updatesCard1Title: "Photos",
+        updatesCard1Text: "You can place future photos here to show the activities, environment, and progress of ArmZoo NGO.",
+        updatesCard2Title: "Videos",
+        updatesCard2Text: "You can later add a project video, educational video, or center introduction here.",
+        videoPlaceholder: "Video section will be added here later",
+        updatesCard3Title: "Updates",
+        updatesCard3Text: "This area can later include project milestones, news, visitor impressions, and organizational development updates.",
         donateTitle: "Donate",
         donateSupport: "Support our mission 💚",
-        donateText: "A full donation system will be added soon. Until then, you can contact us for support and partnership opportunities.",
-        contactTitle: "Contact",
         emailLabel: "Email",
+        bankTransfer: "Bank transfer: account details will be added soon",
+        idramText: "Idram / Telcell: payment details will be added soon",
+        paypalText: "PayPal: donation system will be added later",
+        contactTitle: "Contact",
         phoneLabel: "Phone",
         locationLabel: "Location",
         locationText: "Getamej community, Armenia",
         websiteLabel: "Website",
         footerText: "ArmZoo NGO • Inclusive Education • Animal-Assisted Therapy • Community Support"
       },
+      hy: {
+        brand: "ArmZoo NGO",
+        navAbout: "Մեր մասին",
+        navImpact: "Ազդեցություն",
+        navGallery: "Պատկերասրահ",
+        navUpdates: "Թարմացումներ",
+        navDonate: "Նվիրատվություն",
+        navContact: "Կապ",
+        heroTitle: "Զորացնում ենք երեխաներին բնության, ուսուցման և կենդանահեն թերապիայի միջոցով",
+        heroSubtitle: "Զարգացնում ենք երեխաներին բնության, կրթության և կենդանահեն թերապիայի միջոցով",
+        donateNow: "Նվիրաբերել հիմա",
+        partnerWithUs: "Համագործակցել մեզ հետ",
+        aboutTitle: "Մեր մասին",
+        aboutText: "ArmZoo NGO-ն ներառական կրթական և թերապևտիկ նախաձեռնություն է Հայաստանում։ Մենք աջակցում ենք երեխաներին բնության վրա հիմնված ուսուցմամբ, կենդանիների աջակցությամբ թերապիայով, հոգեսոցիալական աջակցությամբ և համայնքային ծրագրերով։",
+        missionText: "Մեր առաքելությունն է ստեղծել անվտանգ և ներառական միջավայր, որտեղ երեխաները կարող են բուժվել, սովորել և աճել բնության և կենդանահեն թերապիայի միջոցով։",
+        profileTitle: "Professional NGO Profile",
+        profileText1: "Բարի գալուստ ArmZoo NGO-ի պաշտոնական կայք։ Շնորհակալություն մեզ այցելելու համար։",
+        profileText2: "ArmZoo-ն նորաստեղծ հասարակական կազմակերպություն է, որի առաքելությունն է աջակցել երեխաների զարգացմանը՝ կրթական ծրագրերի, բնության վրա հիմնված ուսուցման և կենդանիների հետ փոխազդեցության միջոցով։",
+        profileText3: "Մեր ուսումնակրթական կենտրոնը ներկայումս գտնվում է ստեղծման և կազմակերպման փուլում և դեռ լիարժեք չի գործում։",
+        profileText4: "Մենք ակտիվորեն աշխատում ենք ծրագրերի մշակման, միջավայրի ձևավորման և ապագա գործունեության կազմակերպման ուղղությամբ՝ նպատակ ունենալով ստեղծել անվտանգ, ներառական և զարգացնող միջավայր երեխաների և համայնքի համար։",
+        profileText5: "Կայքում կարող եք հետևել մեր առաջընթացին, ծրագրերին, ինչպես նաև մեր գործունեության լուսանկարներին, տեսանյութերին և թարմացումներին։",
+        noticeTitle: "Կարևոր նշում",
+        noticeText: "ArmZoo NGO-ն նորաստեղծ ՀԿ է։ Ուսումնակրթական կենտրոնը գտնվում է նախապատրաստական և բացվելու փուլում և դեռ լիարժեք չի գործում։",
+        impactTitle: "Ազդեցություն",
+        impact1Title: "40–100 երեխա",
+        impact1Text: "աջակցություն տարեկան",
+        impact2Title: "Կենդանահեն թերապիա",
+        impact2Text: "կառուցվածքային ծրագրեր և ուղեկցվող սեանսներ",
+        impact3Title: "Ներառական կրթություն",
+        impact3Text: "ուսումնական և զարգացման աջակցություն",
+        impact4Title: "Համայնքային ներգրավվածություն",
+        impact4Text: "ընտանիքների և համայնքի մասնակցություն",
+        galleryTitle: "Լուսանկարներ",
+        galleryText: "Տեսողական ներկայացում ArmZoo-ի գաղափարի, միջավայրի և ներառական թերապիայի մոդելի մասին։",
+        updatesTitle: "Լուսանկարներ, տեսանյութեր և թարմացումներ",
+        updatesLead: "Այս բաժինը կարող եք օգտագործել հետագա լուսանկարների, տեսանյութերի և կազմակերպության ու կենտրոնի զարգացման մասին թարմացումների համար։",
+        updatesCard1Title: "Լուսանկարներ",
+        updatesCard1Text: "Այստեղ հետագայում կարող եք տեղադրել լուսանկարներ, որոնք կներկայացնեն ArmZoo NGO-ի գործունեությունը, միջավայրը և առաջընթացը։",
+        updatesCard2Title: "Տեսանյութեր",
+        updatesCard2Text: "Այստեղ հետագայում կարող եք ավելացնել ծրագրի տեսանյութ, կրթական տեսանյութ կամ կենտրոնի ներկայացում։",
+        videoPlaceholder: "Տեսանյութի բաժինը կավելացվի ավելի ուշ",
+        updatesCard3Title: "Թարմացումներ",
+        updatesCard3Text: "Այս հատվածում հետագայում կարող են տեղադրվել ծրագրի կարևոր քայլերը, նորությունները, այցելուների տպավորությունները և կազմակերպության զարգացման թարմացումները։",
+        donateTitle: "Նվիրատվություն",
+        donateSupport: "Աջակցեք մեր առաքելությանը 💚",
+        emailLabel: "Էլ. հասցե",
+        bankTransfer: "Բանկային փոխանցում․ հաշվի տվյալները կավելացվեն շուտով",
+        idramText: "Idram / Telcell․ վճարման տվյալները կավելացվեն շուտով",
+        paypalText: "PayPal․ նվիրատվության համակարգը կավելացվի ավելի ուշ",
+        contactTitle: "Կապ",
+        phoneLabel: "Հեռախոս",
+        locationLabel: "Վայր",
+        locationText: "Գետամեջ համայնք, Հայաստան",
+        websiteLabel: "Կայք",
+        footerText: "ArmZoo NGO • Ներառական կրթություն • Կենդանահեն թերապիա • Համայնքային աջակցություն"
+      },
       ru: {
         brand: "ArmZoo NGO",
         navAbout: "О нас",
         navImpact: "Влияние",
         navGallery: "Галерея",
+        navUpdates: "Обновления",
         navDonate: "Пожертвовать",
         navContact: "Контакты",
         heroTitle: "Помогаем детям развиваться через природу, обучение и терапию с участием животных",
-        heroSubtitle: "Инклюзивное образование, психосоциальная поддержка и терапия с участием животных в Армении",
+        heroSubtitle: "Развиваем детей через природу, образование и терапию с животными",
         donateNow: "Пожертвовать",
         partnerWithUs: "Сотрудничать с нами",
         aboutTitle: "О нас",
-        aboutText: "ArmZoo NGO — это инклюзивная образовательная и терапевтическая инициатива в Армении. Мы поддерживаем детей через обучение на природе, терапию с участием животных, психосоциальную поддержку и общественные программы.",
-        missionText: "Наша миссия — создать безопасную и инклюзивную среду, где дети могут восстанавливаться, учиться и развиваться через природу и терапию с участием животных.",
-        profileTitle: "Профессиональный профиль NGO",
-        profile1: "Инклюзивное образование и психосоциальная поддержка детей",
-        profile2: "Терапия с участием животных и развитие через природу",
-        profile3: "Вовлечение сообщества и локальные партнерства",
-        profile4: "Проект, готовый к грантам: команда, территория и действующий сайт",
+        aboutText: "ArmZoo NGO — это инклюзивная образовательная и терапевтическая инициатива в Армении. Мы поддерживаем детей через обучение на основе природы, терапию с участием животных, психосоциальную поддержку и общественные программы.",
+        missionText: "Наша миссия — создать безопасную и инклюзивную среду, где дети могут развиваться, учиться и восстанавливаться через природу и терапию с участием животных.",
+        profileTitle: "Professional NGO Profile",
+        profileText1: "Добро пожаловать на официальный сайт ArmZoo NGO. Спасибо за ваш визит.",
+        profileText2: "ArmZoo — это новая общественная организация, целью которой является поддержка развития детей через образовательные программы, обучение на основе природы и взаимодействие с животными.",
+        profileText3: "Наш образовательный центр находится на этапе создания и подготовки и пока не функционирует в полном объеме.",
+        profileText4: "Мы активно работаем над разработкой программ, формированием среды и организацией будущей деятельности, чтобы создать безопасное, инклюзивное и развивающее пространство для детей и сообщества.",
+        profileText5: "На этом сайте вы можете следить за нашим прогрессом, программами и будущими планами.",
+        noticeTitle: "Важное примечание",
+        noticeText: "ArmZoo NGO — недавно созданная организация. Наш образовательный центр все еще находится на стадии подготовки и открытия и пока не функционирует полноценно.",
         impactTitle: "Влияние",
         impact1Title: "40–100 детей",
         impact1Text: "поддержка ежегодно",
@@ -608,18 +626,29 @@
         impact3Text: "обучение и поддержка развития",
         impact4Title: "Участие сообщества",
         impact4Text: "участие семей и местного сообщества",
-        galleryTitle: "Фотогалерея",
+        galleryTitle: "Галерея",
         galleryText: "Визуальное представление концепции ArmZoo, среды и модели инклюзивной терапии.",
+        updatesTitle: "Фото, видео и обновления",
+        updatesLead: "Этот раздел можно использовать для будущих фотографий, видео и обновлений о развитии нашей организации и центра.",
+        updatesCard1Title: "Фотографии",
+        updatesCard1Text: "Здесь позже можно разместить фотографии, показывающие деятельность, среду и прогресс ArmZoo NGO.",
+        updatesCard2Title: "Видео",
+        updatesCard2Text: "Позже здесь можно добавить видео проекта, образовательное видео или презентацию центра.",
+        videoPlaceholder: "Раздел видео будет добавлен позже",
+        updatesCard3Title: "Обновления",
+        updatesCard3Text: "Позже здесь можно публиковать важные этапы проекта, новости, впечатления посетителей и обновления о развитии организации.",
         donateTitle: "Пожертвования",
         donateSupport: "Поддержите нашу миссию 💚",
-        donateText: "Полноценная система пожертвований будет добавлена позже. Пока вы можете связаться с нами для поддержки и сотрудничества.",
-        contactTitle: "Контакты",
         emailLabel: "Email",
+        bankTransfer: "Банковский перевод: реквизиты будут добавлены позже",
+        idramText: "Idram / Telcell: данные будут добавлены позже",
+        paypalText: "PayPal: система пожертвований будет добавлена позже",
+        contactTitle: "Контакты",
         phoneLabel: "Телефон",
         locationLabel: "Местоположение",
         locationText: "община Гетамедж, Армения",
         websiteLabel: "Сайт",
-        footerText: "ArmZoo NGO • Инклюзивное образование • Терапия с участием животных • Поддержка сообщества"
+        footerText: "ArmZoo NGO • Инклюзивное образование • Терапия с животными • Поддержка сообщества"
       }
     };
 
@@ -633,19 +662,10 @@
         }
       });
 
-      document.querySelectorAll(".lang-switch button").forEach((btn) => {
-        btn.classList.remove("active");
-      });
-
+      document.querySelectorAll(".lang-switch button").forEach(btn => btn.classList.remove("active"));
       document.getElementById("lang-" + lang).classList.add("active");
-      localStorage.setItem("armzoo-language", lang);
     }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const savedLanguage = localStorage.getItem("armzoo-language") || "hy";
-      setLanguage(savedLanguage);
-    });
   </script>
 
 </body>
-            </html>
+      </html>
