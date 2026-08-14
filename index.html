@@ -256,6 +256,78 @@
       box-shadow: 0 8px 24px rgba(0,0,0,0.04);
     }
 
+
+    .donation-form {
+      width: 100%;
+      max-width: 560px;
+      margin: 28px auto 0;
+      padding: 26px;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1px solid #e6e6e6;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .donation-form h3 {
+      margin: 0 0 18px;
+      color: #2f6b45;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .donation-form label {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .donation-form input,
+    .donation-form select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d7d7d7;
+      border-radius: 14px;
+      font-size: 16px;
+      outline: none;
+      background: #ffffff;
+    }
+
+    .donation-form input:focus,
+    .donation-form select:focus {
+      border-color: #2f6b45;
+      outline: 3px solid rgba(47, 107, 69, 0.14);
+    }
+
+    .donate-button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px 18px;
+      border: none;
+      border-radius: 14px;
+      background: #2f6b45;
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .donate-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+      opacity: 0.95;
+    }
+
+    .donation-note,
+    .payment-coming-soon {
+      margin-top: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #555;
+    }
+
     ul.clean {
       padding-left: 20px;
       line-height: 1.9;
@@ -481,8 +553,68 @@
         <p><strong data-i18n="donateSupport">Support our mission 💚</strong></p>
         <p><span data-i18n="emailLabel">Email</span>: armzoo.ngo@gmail.com</p>
         <p data-i18n="bankTransfer">Bank transfer: account details will be added soon</p>
-        <p data-i18n="idramText">Idram / Telcell: payment details will be added soon</p>
-        <p data-i18n="paypalText">PayPal: donation system will be added later</p>
+        <p class="payment-coming-soon" data-i18n="idramText">Idram, PayPal and bank account details will be added in the next phase.</p>
+
+        <form class="donation-form" action="/api/pay-telcell" method="POST">
+          <h3 data-i18n="donationFormTitle">Donate with Telcell</h3>
+
+          <label for="donor_name" data-i18n="donorNameLabel">Name / Organization</label>
+          <input
+            id="donor_name"
+            type="text"
+            name="donor_name"
+            data-i18n-placeholder="donorNamePlaceholder"
+            placeholder="Your name"
+            required
+          >
+
+          <label for="donor_email" data-i18n="donorEmailLabel">Email</label>
+          <input
+            id="donor_email"
+            type="email"
+            name="donor_email"
+            data-i18n-placeholder="donorEmailPlaceholder"
+            placeholder="example@email.com"
+          >
+
+          <label for="donor_phone" data-i18n="donorPhoneLabel">Phone</label>
+          <input
+            id="donor_phone"
+            type="text"
+            name="donor_phone"
+            data-i18n-placeholder="donorPhonePlaceholder"
+            placeholder="+374..."
+          >
+
+          <label for="amount" data-i18n="donationAmountLabel">Donation amount AMD</label>
+          <input
+            id="amount"
+            type="number"
+            name="amount"
+            min="100"
+            step="100"
+            data-i18n-placeholder="donationAmountPlaceholder"
+            placeholder="Example: 5000"
+            required
+          >
+
+          <label for="purpose" data-i18n="donationPurposeLabel">Donation purpose</label>
+          <select id="purpose" name="purpose">
+            <option value="General donation" data-i18n="donationPurposeGeneral">General support</option>
+            <option value="Inclusive education" data-i18n="donationPurposeInclusive">Inclusive education</option>
+            <option value="Animal-assisted therapy" data-i18n="donationPurposeTherapy">Animal-assisted therapy</option>
+            <option value="Animal care" data-i18n="donationPurposeAnimalCare">Animal care</option>
+            <option value="Eco education" data-i18n="donationPurposeEco">Eco education</option>
+          </select>
+
+          <button type="submit" class="donate-button" data-i18n="telcellPayButton">
+            Pay with Telcell
+          </button>
+
+          <p class="donation-note" data-i18n="donationSecurityNote">
+            Payment will be completed on Telcell's secure payment page. ArmZoo website does not store card data.
+          </p>
+        </form>
       </div>
     </div>
   </div>
@@ -556,8 +688,25 @@
         donateSupport: "Support our mission 💚",
         emailLabel: "Email",
         bankTransfer: "Bank transfer: account details will be added soon",
-        idramText: "Idram / Telcell: payment details will be added soon",
+        idramText: "Idram, PayPal and bank account details will be added in the next phase.",
         paypalText: "PayPal: donation system will be added later",
+        donationFormTitle: "Donate with Telcell",
+        donorNameLabel: "Name / Organization",
+        donorNamePlaceholder: "Your name",
+        donorEmailLabel: "Email",
+        donorEmailPlaceholder: "example@email.com",
+        donorPhoneLabel: "Phone",
+        donorPhonePlaceholder: "+374...",
+        donationAmountLabel: "Donation amount AMD",
+        donationAmountPlaceholder: "Example: 5000",
+        donationPurposeLabel: "Donation purpose",
+        donationPurposeGeneral: "General support",
+        donationPurposeInclusive: "Inclusive education",
+        donationPurposeTherapy: "Animal-assisted therapy",
+        donationPurposeAnimalCare: "Animal care",
+        donationPurposeEco: "Eco education",
+        telcellPayButton: "Pay with Telcell",
+        donationSecurityNote: "Payment will be completed on Telcell's secure payment page. ArmZoo website does not store card data.",
         contactTitle: "Contact",
         phoneLabel: "Phone",
         locationLabel: "Location",
@@ -612,8 +761,25 @@
         donateSupport: "Աջակցեք մեր առաքելությանը 💚",
         emailLabel: "Էլ. հասցե",
         bankTransfer: "Բանկային փոխանցում․ հաշվի տվյալները կավելացվեն շուտով",
-        idramText: "Idram / Telcell․ վճարման տվյալները կավելացվեն շուտով",
+        idramText: "Idram-ը, PayPal-ը և հաշվեհամարի տվյալները կավելացվեն հաջորդ փուլում։",
         paypalText: "PayPal․ նվիրատվության համակարգը կավելացվի ավելի ուշ",
+        donationFormTitle: "Նվիրաբերել Telcell-ով",
+        donorNameLabel: "Անուն / Կազմակերպություն",
+        donorNamePlaceholder: "Ձեր անունը",
+        donorEmailLabel: "Էլ․ հասցե",
+        donorEmailPlaceholder: "example@email.com",
+        donorPhoneLabel: "Հեռախոս",
+        donorPhonePlaceholder: "+374...",
+        donationAmountLabel: "Նվիրաբերության գումար AMD",
+        donationAmountPlaceholder: "Օրինակ՝ 5000",
+        donationPurposeLabel: "Նվիրաբերության նպատակ",
+        donationPurposeGeneral: "Ընդհանուր աջակցություն",
+        donationPurposeInclusive: "Ներառական կրթություն",
+        donationPurposeTherapy: "Կենդանահեն թերապիա",
+        donationPurposeAnimalCare: "Կենդանիների խնամք",
+        donationPurposeEco: "Էկո-կրթություն",
+        telcellPayButton: "Վճարել Telcell-ով",
+        donationSecurityNote: "Վճարումը կատարվելու է Telcell անվտանգ վճարային էջում։ ARMZOO կայքը չի պահպանում քարտային տվյալներ։",
         contactTitle: "Կապ",
         phoneLabel: "Հեռախոս",
         locationLabel: "Վայր",
@@ -668,8 +834,25 @@
         donateSupport: "Поддержите нашу миссию 💚",
         emailLabel: "Email",
         bankTransfer: "Банковский перевод: реквизиты будут добавлены позже",
-        idramText: "Idram / Telcell: данные будут добавлены позже",
+        idramText: "Idram, PayPal и банковские реквизиты будут добавлены на следующем этапе.",
         paypalText: "PayPal: система пожертвований будет добавлена позже",
+        donationFormTitle: "Пожертвовать через Telcell",
+        donorNameLabel: "Имя / Организация",
+        donorNamePlaceholder: "Ваше имя",
+        donorEmailLabel: "Email",
+        donorEmailPlaceholder: "example@email.com",
+        donorPhoneLabel: "Телефон",
+        donorPhonePlaceholder: "+374...",
+        donationAmountLabel: "Сумма пожертвования AMD",
+        donationAmountPlaceholder: "Например: 5000",
+        donationPurposeLabel: "Назначение пожертвования",
+        donationPurposeGeneral: "Общая поддержка",
+        donationPurposeInclusive: "Инклюзивное образование",
+        donationPurposeTherapy: "Терапия с участием животных",
+        donationPurposeAnimalCare: "Уход за животными",
+        donationPurposeEco: "Эко-образование",
+        telcellPayButton: "Оплатить через Telcell",
+        donationSecurityNote: "Оплата будет завершена на безопасной платежной странице Telcell. Сайт ARMZOO не хранит данные банковских карт.",
         contactTitle: "Контакты",
         phoneLabel: "Телефон",
         locationLabel: "Местоположение",
@@ -686,6 +869,13 @@
         const key = element.getAttribute("data-i18n");
         if (translations[lang] && translations[lang][key]) {
           element.textContent = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+        const key = element.getAttribute("data-i18n-placeholder");
+        if (translations[lang] && translations[lang][key]) {
+          element.setAttribute("placeholder", translations[lang][key]);
         }
       });
 
