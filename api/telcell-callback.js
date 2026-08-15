@@ -1,7 +1,10 @@
 function readRawBody(req) {
   return new Promise((resolve, reject) => {
     if (req.body) {
-      if (typeof req.body === "string") return resolve(req.body);
+      if (typeof req.body === "string") {
+        return resolve(req.body);
+      }
+
       if (typeof req.body === "object") {
         return resolve(new URLSearchParams(req.body).toString());
       }
@@ -9,7 +12,7 @@ function readRawBody(req) {
 
     let body = "";
 
-    req.on("data", chunk => {
+    req.on("data", (chunk) => {
       body += chunk.toString();
     });
 
@@ -61,6 +64,9 @@ module.exports = async function handler(req, res) {
 
     /*
       IMPORTANT:
+      This endpoint receives Telcell payment notifications.
+
+      Production rule:
       Donation must be marked as PAID only after:
       1. Telcell callback is received,
       2. Telcell checksum/signature is verified,
@@ -71,6 +77,7 @@ module.exports = async function handler(req, res) {
 
     res.statusCode = 200;
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    res.setHeader("Cache-Control", "no-store");
     res.end("OK");
   } catch (error) {
     console.error("ARMZOO Telcell callback error", error);
