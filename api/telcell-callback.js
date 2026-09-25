@@ -1,3 +1,5 @@
+const crypto = require("crypto");
+
 function readRawBody(req) {
   return new Promise((resolve, reject) => {
     if (req.body) {
@@ -36,12 +38,51 @@ function normalizeStatus(status) {
   return String(status || "").trim().toUpperCase();
 }
 
+function calculateTelcellChecksum(shopKey, callback) {
+  const source =
+    shopKey +
+    callback.invoice +
+    callback.issuer_id +
+    callback.payment_id +
+    callback.currency +
+    callback.sum +
+    callback.time +
+    callback.status;
+
+  return crypto
+    .createHash("md5")
+    .update(source, "utf8")
+    .digest("hex")
+    .toLowerCase();
+}
+
+function safeChecksumEqual(expected, received) {
+  const a = Buffer.from(String(expected || "").toLowerCase());
+  const b = Buffer.from(String(received || "").toLowerCase());
+
+  if (a.length !== b.length) {
+    return false;
+  }
+
+  return crypto.timingSafeEqual(a, b);
+}
+
 module.exports = async function handler(req, res) {
   try {
     if (req.method !== "POST") {
       res.statusCode = 405;
       res.setHeader("Content-Type", "text/plain; charset=utf-8");
       res.end("Method Not Allowed");
+      return;
+    }
+
+    const shopKey = process.env.TELCELL_SHOP_KEY;
+
+    if (!shopKey) {
+      console.error("TELCELL_SHOP_KEY is missing");
+
+      res.statusCode = 500;
+      res.end("Server configuration error");
       return;
     }
 
@@ -59,10 +100,54 @@ module.exports = async function handler(req, res) {
       checksum: data.checksum || ""
     };
 
+    const requiredFields = [
+      "invoice",
+      "issuer_id",
+      "payment_id",
+      "currency",
+      "sum",
+      "time",
+      "status",
+      "checksum"
+    ];
+
+    const missingFields = requiredFields.filter(
+      (field) => !callback[field]
+    );
+
+    if (missingFields.length > 0) {
+      console.warn("Telcell callback missing fields", missingFields);
+
+      res.statusCode = 400;
+      res.end("Invalid callback");
+      return;
+    }
+
+    const expectedChecksum = calculateTelcellChecksum(
+      shopKey,
+      callback
+    );
+
+    const checksumValid = safeChecksumEqual(
+      expectedChecksum,
+      callback.checksum
+    );
+
+    if (!checksumValid) {
+      console.warn("Invalid Telcell callback checksum", {
+        invoice: callback.invoice,
+        payment_id: callback.payment_id
+      });
+
+      res.statusCode = 403;
+      res.end("Invalid checksum");
+      return;
+    }
+
     const isPaid = callback.status === "PAID";
     const isRejected = callback.status === "REJECTED";
 
-    console.log("ARMZOO Telcell callback received", {
+    console.log("ARMZOO verified Telcell callback", {
       receivedAt: new Date().toISOString(),
       invoice: callback.invoice,
       issuer_id: callback.issuer_id,
@@ -71,46 +156,49 @@ module.exports = async function handler(req, res) {
       sum: callback.sum,
       time: callback.time,
       status: callback.status,
-      checksumExists: Boolean(callback.checksum),
-      interpretedStatus: isPaid ? "PAID" : isRejected ? "REJECTED" : "UNKNOWN",
-      raw: data
+      checksumValid: true
     });
 
-    /*
-      IMPORTANT PRODUCTION RULE:
+    if (isPaid) {
+      /*
+       * VERIFIED TELCELL PAYMENT
+       *
+       * Next production step:
+       * verify issuer_id + amount against the donation
+       * originally created by ARMZOO.
+       *
+       * Only after that should the donation be stored
+       * as confirmed/PAID.
+       */
 
-      Telcell callback is received here.
+      console.log("TELCELL_PAYMENT_VERIFIED", {
+        invoice: callback.invoice,
+        issuer_id: callback.issuer_id,
+        payment_id: callback.payment_id,
+        sum: callback.sum,
+        currency: callback.currency
+      });
+    }
 
-      Current known fields:
-      invoice
-      issuer_id
-      payment_id
-      currency
-      sum
-      time
-      status
-      checksum
+    if (isRejected) {
+      console.log("TELCELL_PAYMENT_REJECTED", {
+        invoice: callback.invoice,
+        issuer_id: callback.issuer_id,
+        payment_id: callback.payment_id
+      });
+    }
 
-      Known statuses:
-      PAID
-      REJECTED
-
-      We still need Telcell's exact checksum/signature verification formula.
-
-      Until checksum is verified, do NOT automatically mark a donation as confirmed/PAID
-      in a database or accounting system.
-
-      Correct final rule will be:
-      1. status === "PAID"
-      2. checksum/signature is valid
-      3. amount and invoice match our expected donation
-      => then mark donation as PAID
-    */
+    if (!isPaid && !isRejected) {
+      console.warn("Unknown Telcell payment status", {
+        status: callback.status
+      });
+    }
 
     res.statusCode = 200;
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
     res.setHeader("Cache-Control", "no-store");
     res.end("OK");
+
   } catch (error) {
     console.error("ARMZOO Telcell callback error", {
       receivedAt: new Date().toISOString(),
