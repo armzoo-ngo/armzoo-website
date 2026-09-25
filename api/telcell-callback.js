@@ -32,6 +32,10 @@ function parseFormBody(body) {
   return result;
 }
 
+function normalizeStatus(status) {
+  return String(status || "").trim().toUpperCase();
+}
+
 module.exports = async function handler(req, res) {
   try {
     if (req.method !== "POST") {
@@ -44,35 +48,63 @@ module.exports = async function handler(req, res) {
     const rawBody = await readRawBody(req);
     const data = parseFormBody(rawBody);
 
-    const status = data.status || "";
-    const paymentId = data.payment_id || "";
-    const invoice = data.invoice || "";
-    const sum = data.sum || "";
-    const currency = data.currency || "";
-    const checksum = data.checksum || "";
+    const callback = {
+      invoice: data.invoice || "",
+      issuer_id: data.issuer_id || "",
+      payment_id: data.payment_id || "",
+      currency: data.currency || "",
+      sum: data.sum || "",
+      time: data.time || "",
+      status: normalizeStatus(data.status),
+      checksum: data.checksum || ""
+    };
+
+    const isPaid = callback.status === "PAID";
+    const isRejected = callback.status === "REJECTED";
 
     console.log("ARMZOO Telcell callback received", {
       receivedAt: new Date().toISOString(),
-      status,
-      paymentId,
-      invoice,
-      sum,
-      currency,
-      checksumExists: Boolean(checksum),
+      invoice: callback.invoice,
+      issuer_id: callback.issuer_id,
+      payment_id: callback.payment_id,
+      currency: callback.currency,
+      sum: callback.sum,
+      time: callback.time,
+      status: callback.status,
+      checksumExists: Boolean(callback.checksum),
+      interpretedStatus: isPaid ? "PAID" : isRejected ? "REJECTED" : "UNKNOWN",
       raw: data
     });
 
     /*
-      IMPORTANT:
-      This endpoint receives Telcell payment notifications.
+      IMPORTANT PRODUCTION RULE:
 
-      Production rule:
-      Donation must be marked as PAID only after:
-      1. Telcell callback is received,
-      2. Telcell checksum/signature is verified,
-      3. status is PAID.
+      Telcell callback is received here.
 
-      We still need Telcell's exact callback checksum formula.
+      Current known fields:
+      invoice
+      issuer_id
+      payment_id
+      currency
+      sum
+      time
+      status
+      checksum
+
+      Known statuses:
+      PAID
+      REJECTED
+
+      We still need Telcell's exact checksum/signature verification formula.
+
+      Until checksum is verified, do NOT automatically mark a donation as confirmed/PAID
+      in a database or accounting system.
+
+      Correct final rule will be:
+      1. status === "PAID"
+      2. checksum/signature is valid
+      3. amount and invoice match our expected donation
+      => then mark donation as PAID
     */
 
     res.statusCode = 200;
@@ -80,7 +112,10 @@ module.exports = async function handler(req, res) {
     res.setHeader("Cache-Control", "no-store");
     res.end("OK");
   } catch (error) {
-    console.error("ARMZOO Telcell callback error", error);
+    console.error("ARMZOO Telcell callback error", {
+      receivedAt: new Date().toISOString(),
+      message: error.message
+    });
 
     res.statusCode = 500;
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
